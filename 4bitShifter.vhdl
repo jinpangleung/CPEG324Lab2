@@ -2,13 +2,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity fourBitShifter is
-port(	i:		in std_logic_vector(3 downto 0);
-	i_shift_in: 	in std_logic;
+port(	i:		in std_logic_vector(3 downto 0); -- 4 bit register
+	i_shift_in: 	in std_logic; -- input value
 	sel:        	in std_logic_vector(1 downto 0); -- 00:hold; 01: shift left; 10: shift right; 11: load
 	clock:		in std_logic; -- positive level triggering in problem 3
 	enable:		in std_logic; -- 0: don't do anything; 1: shift left/right is enabled
-	clear:		in std_logic; --0: don't do anything; 1: clear
-	output:		out std_logic_vector(3 downto 0)
+	clear:		in std_logic; -- 0: don't do anything; 1: clear
+	output:		out std_logic_vector(3 downto 0) -- 4 bit output
 );
 end fourBitShifter;
 
@@ -16,10 +16,10 @@ architecture behavioral of fourBitShifter is
 begin
 process(clock)
 begin
-	if (clear = '1' and rising_edge(clock)) then
+	if (clear = '1' and rising_edge(clock)) then -- resets output to 0s
 		output <= "0000";
-	elsif (enable='1' and rising_edge(clock)) then
-		if sel = "00" then
+	elsif (enable='1' and rising_edge(clock)) then -- enable and rising edge of clock required to trigger shifts
+		if sel = "00" then --does nothing
 			--output <= hold;
 		elsif sel = "01" then --left shift
 			output (3 downto 1) <= i (2 downto 0);
