@@ -2,13 +2,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity eightBitShifter is
-port(	i_e:	in std_logic_vector (7 downto 0);
-	i_shift_in_e:	in std_logic;
-	sel_e:	in std_logic_vector (1 downto 0);
-	clock_e:	in std_logic;
-	enable_e: in std_logic;
-	clear_e: in std_logic;
-	output_e:	out std_logic_vector (7 downto 0)
+port(	i_e:	in std_logic_vector (7 downto 0); --8 bit shift register
+	i_shift_in_e:	in std_logic; --input
+	sel_e:	in std_logic_vector (1 downto 0); --select; 00:hold; 01: shift left; 10: shift right; 11: load
+	clock_e:	in std_logic; --clock, positive triggering
+	enable_e: in std_logic; -- 0: do nothing; 1: shift left/right enabled
+	clear_e: in std_logic; -- 0: do nothing; 1: clear
+	output_e:	out std_logic_vector (7 downto 0) -- 8 bit output
 );
 end eightBitShifter;
 
