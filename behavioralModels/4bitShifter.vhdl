@@ -20,7 +20,7 @@ begin
 		output <= "0000";
 	elsif (enable='1' and rising_edge(clock)) then -- enable and rising edge of clock required to trigger shifts
 		if sel = "00" then --does nothing
-			--output <= hold;
+			--does nothing
 		elsif sel = "01" then --left shift
 			output (3 downto 1) <= i (2 downto 0);
 			output (0) <= i_shift_in;
