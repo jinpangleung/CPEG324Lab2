@@ -21,11 +21,11 @@ end entity demux;
 
 architecture behavioral of demux is 
 begin
-process(enable)
+process(input, sel)
 variable selSum : integer := 0;
 variable selValue : integer := 0;
 begin
-
+if (enable = '1') then
 for k in Y-1 downto 0 loop
 	if (sel(k) = '0') then
 		selValue := 0;
@@ -49,7 +49,7 @@ end loop;
 
 selSum := 0;
 selValue := 0;
-
+end if;
 end process;
 end behavioral;
 		
