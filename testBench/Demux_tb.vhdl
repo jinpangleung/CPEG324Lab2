@@ -35,7 +35,7 @@ assert(Outputs(0,7) = '1' and Outputs(0,6) = '0' and Outputs(0,5) = '1' and Outp
 
 Input <= "10101010";
 Sel <= "001";
-Enable <= '0';
+Enable <= '1';
 wait for 20 ns;
 assert(Outputs(1,7) = '1' and Outputs(1,6) = '0' and Outputs(1,5) = '1' and Outputs(1,4) = '0' and Outputs(1,3) = '1' and Outputs(1,2) = '0' and Outputs(1,1) = '1' and Outputs(1,0) = '0') report "Test two failed!!!!";
 
@@ -47,7 +47,7 @@ assert(Outputs(2,7) = '1' and Outputs(2,6) = '0' and Outputs(2,5) = '1' and Outp
 
 Input <= "10101010";
 Sel <= "011";
-Enable <= '0';
+Enable <= '1';
 wait for 20 ns;
 assert(Outputs(3,7) = '1' and Outputs(3,6) = '0' and Outputs(3,5) = '1' and Outputs(3,4) = '0' and Outputs(3,3) = '1' and Outputs(3,2) = '0' and Outputs(3,1) = '1' and Outputs(3,0) = '0') report "Test four failed!!!!";
 
@@ -59,7 +59,7 @@ assert(Outputs(4,7) = '1' and Outputs(4,6) = '0' and Outputs(4,5) = '1' and Outp
 
 Input <= "10101010";
 Sel <= "101";
-Enable <= '0';
+Enable <= '1';
 wait for 20 ns;
 assert(Outputs(5,7) = '1' and Outputs(5,6) = '0' and Outputs(5,5) = '1' and Outputs(5,4) = '0' and Outputs(5,3) = '1' and Outputs(5,2) = '0' and Outputs(5,1) = '1' and Outputs(5,0) = '0') report "Test six failed!!!!";
 
@@ -71,10 +71,18 @@ assert(Outputs(6,7) = '1' and Outputs(6,6) = '0' and Outputs(6,5) = '1' and Outp
 
 Input <= "10101010";
 Sel <= "111";
-Enable <= '0';
+Enable <= '1';
 wait for 20 ns;
 assert(Outputs(7,7) = '1' and Outputs(7,6) = '0' and Outputs(7,5) = '1' and Outputs(7,4) = '0' and Outputs(7,3) = '1' and Outputs(7,2) = '0' and Outputs(7,1) = '1' and Outputs(7,0) = '0') report "Test eight failed!!!!";
+
+Input <= "10101010";
+Sel <= "001";
+Enable <= '0';
+wait for 20 ns;
+assert(Outputs(1,7) = '0' and Outputs(1,6) = '0' and Outputs(1,5) = '0' and Outputs(1,4) = '0' and Outputs(1,3) = '0' and Outputs(1,2) = '0' and Outputs(1,1) = '0' and Outputs(1,0) = '0') report "Test nine failed!!!!";
+
 wait;
 
 end process;
 end architecture;
+
