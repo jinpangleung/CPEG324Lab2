@@ -2,18 +2,17 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity fourBitAdder is
-port(	operandOne: inout std_logic_vector (3 downto 0);
-	operandTwo: inout std_logic_vector (3 downto 0);
+port(	operandOne: in std_logic_vector (3 downto 0);
+	operandTwo: in std_logic_vector (3 downto 0);
 	output: out std_logic_vector (3 downto 0);
 	overflow: out std_logic;
-	start: in std_logic;
 	underflow: out std_logic
 );
 end entity fourBitAdder;
 
 architecture behavioral of fourBitAdder is
 begin
-process(start)
+process(operandOne, operandTwo)
 variable carry : boolean := false;
 begin
 	if (operandOne(0) = '1') and (operandTwo(0) = '1') then
