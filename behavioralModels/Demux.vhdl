@@ -12,10 +12,10 @@ entity demux is
 generic ( X : integer := 8;
 	   Y : integer := 3
 );
-port(	outputs : out twoDimensional(2**Y - 1 downto 0, X-1 downto 0);
-	input : in std_logic_vector (X-1 downto 0);
-	enable : in std_logic;
-	sel : in std_logic_vector (Y-1 downto 0)
+port(	outputs : out twoDimensional(2**Y - 1 downto 0, X-1 downto 0); --variable sized output
+	input : in std_logic_vector (X-1 downto 0); --variable sized input
+	enable : in std_logic; --enable
+	sel : in std_logic_vector (Y-1 downto 0) --select
 );
 end entity demux;
 
